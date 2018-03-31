@@ -1,0 +1,28 @@
+.jumbotron{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.jumbotron h1{
+  text-align: center;
+  padding: 25px;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.jumbotron p {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.form-button{
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.form-button .btn{
+  padding: 3px 50px;
+  margin: 10px 20px;
+}
+
