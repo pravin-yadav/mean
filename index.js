@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config/database');
+const router = express.Router();
+const authentication = require('./routes/authentication')(router);
+const bodyParser = require('body-parser');
 
 mongoose.connect(config.uri , (err) => {
     if(err){
@@ -13,11 +16,15 @@ mongoose.Promise = global.Promise;
 
 const app = express();
 
-
 app.use(express.static(__dirname + '/client/dist/'))
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use('/api', authentication);
+
 app.get('/', (req, res) => {
-    res.render(__dirname + '/client/dist/index.html');
+    // res.render(__dirname + '/client/dist/index.html');
+    res.send("Hello World");
 });
 
 app.get('*', (req, res) => {
